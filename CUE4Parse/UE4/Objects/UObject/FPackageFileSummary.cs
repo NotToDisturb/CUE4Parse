@@ -279,7 +279,7 @@ namespace CUE4Parse.UE4.Objects.UObject
 
             ThumbnailTableOffset = Ar.Read<int>();
 
-            if (Ar.Game is EGame.GAME_Valorant or EGame.GAME_HYENAS) Ar.Position += 8;
+            if (Ar.Game is EGame.GAME_HYENAS || GameUtils.IsValorant(Ar.Game)) Ar.Position += 8;
 
             Guid = Ar.Read<FGuid>();
 

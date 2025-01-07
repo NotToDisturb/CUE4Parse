@@ -25,17 +25,31 @@ namespace CUE4Parse.UE4.Objects.Meshes
             }
             Stride = Ar.Read<int>();
             NumVertices = Ar.Read<int>();
-            if (Ar.Game == EGame.GAME_Valorant)
+            if (GameUtils.IsValorant(Ar.Game) && Ar.Game >= EGame.GAME_Valorant_4_04_to_5_02)
             {
                 bool bUseFullPrecisionPositions = Ar.ReadBoolean();
-                var bounds = new FBoxSphereBounds(Ar);
-                if (!bUseFullPrecisionPositions)
+                if (Ar.Game >= EGame.GAME_Valorant_6_01_to_6_10)
                 {
-                    var vertsHalf = Ar.ReadBulkArray<FVector3SignedShortScale>();
-                    Verts = new FVector[vertsHalf.Length];
-                    for (int i = 0; i < vertsHalf.Length; i++)
-                        Verts[i] = vertsHalf[i] * bounds.BoxExtent + bounds.Origin;
-                    return;
+                    var bounds = new FBoxSphereBounds(Ar);
+                    if (!bUseFullPrecisionPositions)
+                    {
+                        var vertsHalf = Ar.ReadBulkArray<FVector3SignedShortScale>();
+                        Verts = new FVector[vertsHalf.Length];
+                        for (int i = 0; i < vertsHalf.Length; i++)
+                            Verts[i] = vertsHalf[i] * bounds.BoxExtent + bounds.Origin;
+                        return;
+                    }
+                }
+                else
+                {
+                    if (!bUseFullPrecisionPositions)
+                    {
+                        var vertsHalf = Ar.ReadBulkArray<FVector4Half>();
+                        Verts = new FVector[vertsHalf.Length];
+                        for (int i = 0; i < vertsHalf.Length; i++)
+                            Verts[i] = vertsHalf[i]; // W appears to be all zeros (alignment?), simply dropping
+                        return;
+                    }
                 }
             }
             if (Ar.Game == EGame.GAME_Gollum) Ar.Position += 25;

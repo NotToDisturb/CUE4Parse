@@ -123,7 +123,22 @@ public enum EGame
     GAME_UE5_5 = GameUtils.GameUe5Base + 5 << 4,
     GAME_UE5_6 = GameUtils.GameUe5Base + 6 << 4,
 
-    GAME_UE5_LATEST = GAME_UE5_6
+    GAME_UE5_LATEST = GAME_UE5_6,
+
+    // VALORANT
+    // 4.23
+    GAME_Valorant_1_00_to_1_14 = GAME_UE4_23 + 2,
+    // 4.24
+    GAME_Valorant_2_00_to_2_01 = GAME_UE4_24 + 2,
+    GAME_Valorant_2_02_to_2_11 = GAME_UE4_24 + 3,
+    // 4.25
+    GAME_Valorant_2_11_to_4_03 = GAME_UE4_25 + 10,
+    GAME_Valorant_4_04_to_5_02 = GAME_UE4_25 + 11,
+    // 4.26
+    GAME_Valorant_5_03_to_6_00 = GAME_UE4_26 + 16,
+    GAME_Valorant_6_01_to_6_10 = GAME_UE4_26 + 17,
+    // 4.27
+    GAME_Valorant_6_11_to_Latest = GAME_Valorant,
 }
 
 public static class GameUtils
@@ -189,5 +204,10 @@ public static class GameUtils
             < EGame.GAME_UE4_27 => 522,
             _ => (int) EUnrealEngineObjectUE4Version.AUTOMATIC_VERSION
         });
+    }
+
+    public static bool IsValorant(EGame game)
+    {
+        return game.ToString().Contains("GAME_Valorant");
     }
 }
