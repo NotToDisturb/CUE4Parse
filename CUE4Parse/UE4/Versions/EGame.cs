@@ -64,7 +64,6 @@ public enum EGame
         GAME_ReadyOrNot = GAME_UE4_26 + 2,
         GAME_BladeAndSoul = GAME_UE4_26 + 3,
         GAME_TowerOfFantasy = GAME_UE4_26 + 4,
-        GAME_Dauntless = GAME_UE4_26 + 5,
         GAME_TheDivisionResurgence = GAME_UE4_26 + 6,
         GAME_StarWarsJediSurvivor = GAME_UE4_26 + 7,
         GAME_Snowbreak = GAME_UE4_26 + 8,
@@ -72,7 +71,6 @@ public enum EGame
         GAME_QQ = GAME_UE4_26 + 10,
         GAME_WutheringWaves = GAME_UE4_26 + 11,
         GAME_DreamStar = GAME_UE4_26 + 12,
-        GAME_MidnightSuns = GAME_UE4_26 + 13,
         GAME_FragPunk = GAME_UE4_26 + 14,
         GAME_RacingMaster = GAME_UE4_26 + 15,
     GAME_UE4_27 = GameUtils.GameUe4Base + 27 << 4,
@@ -80,7 +78,6 @@ public enum EGame
         GAME_HYENAS = GAME_UE4_27 + 2,
         GAME_HogwartsLegacy = GAME_UE4_27 + 3,
         GAME_OutlastTrials = GAME_UE4_27 + 4,
-        GAME_Valorant = GAME_UE4_27 + 5,
         GAME_Gollum = GAME_UE4_27 + 6,
         GAME_Grounded = GAME_UE4_27 + 7,
         GAME_DeltaForceHawkOps = GAME_UE4_27 + 8,
@@ -89,6 +86,7 @@ public enum EGame
         GAME_Spectre = GAME_UE4_27 + 11,
         GAME_KartRiderDrift = GAME_UE4_27 + 12,
         GAME_ThroneAndLiberty = GAME_UE4_27 + 13,
+        GAME_Valorant = GAME_UE4_27 + 14,
     GAME_UE4_28 = GameUtils.GameUe4Base + 28 << 4,
 
     GAME_UE4_LATEST = GAME_UE4_28,
@@ -135,10 +133,10 @@ public enum EGame
     GAME_Valorant_2_11_to_4_03 = GAME_UE4_25 + 10,
     GAME_Valorant_4_04_to_5_02 = GAME_UE4_25 + 11,
     // 4.26
-    GAME_Valorant_5_03_to_6_00 = GAME_UE4_26 + 16,
-    GAME_Valorant_6_01_to_6_10 = GAME_UE4_26 + 17,
+    GAME_Valorant_5_03_to_6_00 = GAME_UE4_26 + 5,
+    GAME_Valorant_6_01_to_6_10 = GAME_UE4_26 + 13,
     // 4.27
-    GAME_Valorant_6_11_to_Latest = GAME_Valorant,
+    GAME_Valorant_6_11_to_Latest = GAME_UE4_27 + 5,
 }
 
 public static class GameUtils
